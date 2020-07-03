@@ -1,0 +1,128 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     train2-weka.filters.unsupervised.attribute.Remove-R1-weka.filters.unsupervised.attribute.Remove-R1-2,4-9,11-12,14-15,18,21,23,28,30-32,34-35,37-38,40-41,43-45
+Instances:    22987
+Attributes:   18
+              best
+              day
+              fuck
+              great
+              happy
+              ice
+              is
+              liberals
+              love
+              my
+              night
+              not
+              people
+              sick
+              stupid
+              they
+              trump
+              sentiment
+Test mode:    user supplied test set:  size unknown (reading incrementally)
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+love <= 0
+|   fuck <= 0
+|   |   great <= 0
+|   |   |   best <= 0
+|   |   |   |   happy <= 0
+|   |   |   |   |   trump <= 0
+|   |   |   |   |   |   liberals <= 0
+|   |   |   |   |   |   |   ice <= 0
+|   |   |   |   |   |   |   |   people <= 0
+|   |   |   |   |   |   |   |   |   they <= 0
+|   |   |   |   |   |   |   |   |   |   my <= 0
+|   |   |   |   |   |   |   |   |   |   |   day <= 0: neutral (17379.0/7875.0)
+|   |   |   |   |   |   |   |   |   |   |   day > 0
+|   |   |   |   |   |   |   |   |   |   |   |   is <= 0: neutral (398.0/206.0)
+|   |   |   |   |   |   |   |   |   |   |   |   is > 0: positive (143.0/65.0)
+|   |   |   |   |   |   |   |   |   |   my > 0
+|   |   |   |   |   |   |   |   |   |   |   not <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   my <= 1: positive (1045.0/549.0)
+|   |   |   |   |   |   |   |   |   |   |   |   my > 1: neutral (115.0/67.0)
+|   |   |   |   |   |   |   |   |   |   |   not > 0: neutral (77.0/31.0)
+|   |   |   |   |   |   |   |   |   they > 0
+|   |   |   |   |   |   |   |   |   |   they <= 1
+|   |   |   |   |   |   |   |   |   |   |   not <= 0: neutral (546.0/295.0)
+|   |   |   |   |   |   |   |   |   |   |   not > 0: negative (52.0/24.0)
+|   |   |   |   |   |   |   |   |   |   they > 1
+|   |   |   |   |   |   |   |   |   |   |   not <= 0: negative (42.0/15.0)
+|   |   |   |   |   |   |   |   |   |   |   not > 0: neutral (8.0/2.0)
+|   |   |   |   |   |   |   |   people > 0
+|   |   |   |   |   |   |   |   |   my <= 0: negative (337.0/159.0)
+|   |   |   |   |   |   |   |   |   my > 0: neutral (19.0/9.0)
+|   |   |   |   |   |   |   ice > 0
+|   |   |   |   |   |   |   |   day <= 0
+|   |   |   |   |   |   |   |   |   is <= 0
+|   |   |   |   |   |   |   |   |   |   my <= 0: neutral (155.0/78.0)
+|   |   |   |   |   |   |   |   |   |   my > 0: positive (11.0/3.0)
+|   |   |   |   |   |   |   |   |   is > 0
+|   |   |   |   |   |   |   |   |   |   my <= 0: positive (53.0/16.0)
+|   |   |   |   |   |   |   |   |   |   my > 0: neutral (3.0/1.0)
+|   |   |   |   |   |   |   |   day > 0: positive (60.0/10.0)
+|   |   |   |   |   |   liberals > 0: negative (74.0/14.0)
+|   |   |   |   |   trump > 0
+|   |   |   |   |   |   they <= 0
+|   |   |   |   |   |   |   is <= 0: neutral (363.0/182.0)
+|   |   |   |   |   |   |   is > 0: negative (122.0/52.0)
+|   |   |   |   |   |   they > 0
+|   |   |   |   |   |   |   is <= 0: negative (17.0/4.0)
+|   |   |   |   |   |   |   is > 0: neutral (2.0)
+|   |   |   |   happy > 0
+|   |   |   |   |   not <= 0: positive (659.0/243.0)
+|   |   |   |   |   not > 0
+|   |   |   |   |   |   not <= 1
+|   |   |   |   |   |   |   my <= 0: negative (44.0/25.0)
+|   |   |   |   |   |   |   my > 0: positive (5.0/2.0)
+|   |   |   |   |   |   not > 1: neutral (3.0)
+|   |   |   best > 0: positive (335.0/107.0)
+|   |   great > 0
+|   |   |   not <= 0: positive (264.0/71.0)
+|   |   |   not > 0: neutral (15.0/7.0)
+|   fuck > 0: negative (233.0/74.0)
+love > 0
+|   not <= 0: positive (385.0/79.0)
+|   not > 0
+|   |   my <= 0: neutral (20.0/8.0)
+|   |   my > 0: positive (3.0/1.0)
+
+Number of Leaves  : 	33
+
+Size of the tree : 	65
+
+
+Time taken to build model: 0.41 seconds
+
+=== Evaluation on test set ===
+
+Time taken to test model on supplied test set: 0.01 seconds
+
+=== Summary ===
+
+Correctly Classified Instances        2395               48.6097 %
+Incorrectly Classified Instances      2532               51.3903 %
+Total Number of Instances             4927     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   Class
+                 0.056    0.035    0.299      0.056    negative
+                 0.187    0.104    0.438      0.187    positive
+                 0.858    0.807    0.502      0.858    neutral
+Weighted Avg.    0.486    0.432    0.440      0.486    
+
+=== Confusion Matrix ===
+
+    a    b    c   <-- classified as
+   58   99  881 |    a = negative
+   52  278 1159 |    b = positive
+   84  257 2059 |    c = neutral
+

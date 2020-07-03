@@ -1,0 +1,90 @@
+=== Run information ===
+
+Evaluator:    weka.attributeSelection.CfsSubsetEval -P 1 -E 1
+Search:       weka.attributeSelection.BestFirst -D 1 -N 5
+Relation:     train2-weka.filters.unsupervised.attribute.Remove-R1
+Instances:    22987
+Attributes:   46
+              and
+              bad
+              best
+              better
+              big
+              country
+              crap
+              damn
+              dance
+              day
+              democrats
+              do
+              fuck
+              gay
+              gift
+              great
+              happy
+              hate
+              ice
+              is
+              job
+              liberals
+              like
+              love
+              my
+              night
+              not
+              obama
+              people
+              racist
+              real
+              shit
+              sick
+              smart
+              so
+              stupid
+              the
+              their
+              they
+              to
+              today
+              trump
+              vote
+              watch
+              we
+              sentiment
+Evaluation mode:    evaluate on all training data
+
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Best first.
+	Start set: no attributes
+	Search direction: forward
+	Stale search after 5 node expansions
+	Total number of subsets evaluated: 688
+	Merit of best subset found:    0.034
+
+Attribute Subset Evaluator (supervised, Class (nominal): 46 sentiment):
+	CFS Subset Evaluator
+	Including locally predictive attributes
+
+Selected attributes: 3,10,13,16,17,19,20,22,24,25,26,27,29,33,36,39,42 : 17
+                     best
+                     day
+                     fuck
+                     great
+                     happy
+                     ice
+                     is
+                     liberals
+                     love
+                     my
+                     night
+                     not
+                     people
+                     sick
+                     stupid
+                     they
+                     trump
+

@@ -1,0 +1,143 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.SMO -C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K "weka.classifiers.functions.supportVector.PolyKernel -E 1.0 -C 250007" -calibrator "weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4"
+Relation:     train2-weka.filters.unsupervised.attribute.Remove-R1-weka.filters.unsupervised.attribute.Remove-R1-2,4-9,11-12,14-15,18,21,23,28,30-32,34-35,37-38,40-41,43-45
+Instances:    22987
+Attributes:   18
+              best
+              day
+              fuck
+              great
+              happy
+              ice
+              is
+              liberals
+              love
+              my
+              night
+              not
+              people
+              sick
+              stupid
+              they
+              trump
+              sentiment
+Test mode:    user supplied test set:  size unknown (reading incrementally)
+
+=== Classifier model (full training set) ===
+
+SMO
+
+Kernel used:
+  Linear Kernel: K(x,y) = <x,y>
+
+Classifier for classes: negative, positive
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0.0003 * (normalized) best
+ +       0.0011 * (normalized) day
+ +      -4      * (normalized) fuck
+ +       0.0026 * (normalized) great
+ +       0.0007 * (normalized) happy
+ +       0.0024 * (normalized) ice
+ +       0.0006 * (normalized) is
+ +      -4      * (normalized) liberals
+ +       2      * (normalized) love
+ +       0.001  * (normalized) my
+ +       0.0012 * (normalized) night
+ +      -5.9987 * (normalized) not
+ +      -5.9972 * (normalized) people
+ +      -3.6667 * (normalized) sick
+ +      -1.9997 * (normalized) stupid
+ +      -7.9981 * (normalized) they
+ +      -3.9998 * (normalized) trump
+ +       0.9992
+
+Number of kernel evaluations: 3433980 (51.821% cached)
+
+Classifier for classes: negative, neutral
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+        -0      * (normalized) best
+ +      -0.0008 * (normalized) day
+ +      -3.9999 * (normalized) fuck
+ +       0      * (normalized) great
+ +       0      * (normalized) happy
+ +       0      * (normalized) ice
+ +       0.0001 * (normalized) is
+ +      -4      * (normalized) liberals
+ +      -0.0007 * (normalized) love
+ +      -0.0002 * (normalized) my
+ +      -0      * (normalized) night
+ +      -0.0003 * (normalized) not
+ +      -6.0004 * (normalized) people
+ +      -3.3333 * (normalized) sick
+ +      -2      * (normalized) stupid
+ +      -0.0011 * (normalized) they
+ +      -2      * (normalized) trump
+ +       1.0004
+
+Number of kernel evaluations: 3286361 (52.692% cached)
+
+Classifier for classes: positive, neutral
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+        -4      * (normalized) best
+ +      -1.0657 * (normalized) day
+ +      -0      * (normalized) fuck
+ +      -4      * (normalized) great
+ +      -5.9989 * (normalized) happy
+ +      -3.8662 * (normalized) ice
+ +       0.0007 * (normalized) is
+ +       0      * (normalized) liberals
+ +      -3.9994 * (normalized) love
+ +      -2.5    * (normalized) my
+ +       0.0005 * (normalized) night
+ +      -0      * (normalized) not
+ +       0      * (normalized) people
+ +      -0      * (normalized) sick
+ +      -0      * (normalized) stupid
+ +       0.0008 * (normalized) they
+ +       0      * (normalized) trump
+ +       0.9995
+
+Number of kernel evaluations: 4816204 (52.101% cached)
+
+
+
+Time taken to build model: 1.4 seconds
+
+=== Evaluation on test set ===
+
+Time taken to test model on supplied test set: 0.01 seconds
+
+=== Summary ===
+
+Correctly Classified Instances        2408               48.8736 %
+Incorrectly Classified Instances      2519               51.1264 %
+Total Number of Instances             4927     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   Class
+                 0.063    0.039    0.298      0.063    negative
+                 0.132    0.063    0.475      0.132    positive
+                 0.895    0.850    0.500      0.895    neutral
+Weighted Avg.    0.489    0.442    0.450      0.489    
+
+=== Confusion Matrix ===
+
+    a    b    c   <-- classified as
+   65   57  916 |    a = negative
+   60  196 1233 |    b = positive
+   93  160 2147 |    c = neutral
+

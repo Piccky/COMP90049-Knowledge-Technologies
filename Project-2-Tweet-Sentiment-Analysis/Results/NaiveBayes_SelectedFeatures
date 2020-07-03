@@ -1,0 +1,165 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.bayes.NaiveBayes 
+Relation:     train2-weka.filters.unsupervised.attribute.Remove-R1-weka.filters.unsupervised.attribute.Remove-R1-2,4-9,11-12,14-15,18,21,23,28,30-32,34-35,37-38,40-41,43-45
+Instances:    22987
+Attributes:   18
+              best
+              day
+              fuck
+              great
+              happy
+              ice
+              is
+              liberals
+              love
+              my
+              night
+              not
+              people
+              sick
+              stupid
+              they
+              trump
+              sentiment
+Test mode:    user supplied test set:  size unknown (reading incrementally)
+
+=== Classifier model (full training set) ===
+
+Naive Bayes Classifier
+
+                  Class
+Attribute      negative positive  neutral
+                 (0.22)   (0.28)    (0.5)
+==========================================
+best
+  mean            0.0053   0.0382   0.0075
+  std. dev.       0.1667   0.1948   0.1667
+  weight sum        5062     6471    11454
+  precision            1        1        1
+
+day
+  mean            0.0182   0.0677   0.0289
+  std. dev.       0.1667   0.2679   0.1781
+  weight sum        5062     6471    11454
+  precision            1        1        1
+
+fuck
+  mean            0.0332   0.0062   0.0035
+  std. dev.       0.1877   0.1667   0.1667
+  weight sum        5062     6471    11454
+  precision            1        1        1
+
+great
+  mean            0.0049   0.0331   0.0049
+  std. dev.       0.1667   0.1831   0.1667
+  weight sum        5062     6471    11454
+  precision            1        1        1
+
+happy
+  mean            0.0174   0.0822   0.0192
+  std. dev.       0.1667   0.2974   0.1667
+  weight sum        5062     6471    11454
+  precision            1        1        1
+
+ice
+  mean            0.0038   0.0337   0.0102
+  std. dev.       0.1667   0.2068   0.1667
+  weight sum        5062     6471    11454
+  precision            1        1        1
+
+is
+  mean            0.2602   0.2201   0.1728
+  std. dev.       0.5127   0.4682   0.4209
+  weight sum        5062     6471    11454
+  precision            1        1        1
+
+liberals
+  mean            0.0138   0.0002   0.0011
+  std. dev.       0.1667   0.1667   0.1667
+  weight sum        5062     6471    11454
+  precision            1        1        1
+
+love
+  mean            0.0047   0.0516   0.0061
+  std. dev.       0.1667   0.2335   0.1667
+  weight sum        5062     6471    11454
+  precision            1        1        1
+
+my
+  mean            0.0549   0.1247   0.0533
+  std. dev.       0.2572   0.3751    0.249
+  weight sum        5062     6471    11454
+  precision            1        1        1
+
+night
+  mean            0.0077   0.0413   0.0238
+  std. dev.       0.1667   0.2058   0.1667
+  weight sum        5062     6471    11454
+  precision            1        1        1
+
+not
+  mean            0.1092   0.0348    0.067
+  std. dev.       0.3392   0.1898   0.2642
+  weight sum        5062     6471    11454
+  precision            1        1        1
+
+people
+  mean            0.0423   0.0099   0.0132
+  std. dev.        0.208   0.1667   0.1667
+  weight sum        5062     6471    11454
+  precision            1        1        1
+
+sick
+  mean            0.0056   0.0005   0.0005
+  std. dev.         0.25     0.25     0.25
+  weight sum        5062     6471    11454
+  precision          1.5      1.5      1.5
+
+stupid
+  mean            0.0061   0.0003   0.0005
+  std. dev.       0.1667   0.1667   0.1667
+  weight sum        5062     6471    11454
+  precision            1        1        1
+
+they
+  mean            0.0707    0.019   0.0303
+  std. dev.       0.2827   0.1667   0.1856
+  weight sum        5062     6471    11454
+  precision            1        1        1
+
+trump
+  mean            0.0525   0.0045   0.0217
+  std. dev.       0.2301   0.1667   0.1667
+  weight sum        5062     6471    11454
+  precision            1        1        1
+
+
+
+Time taken to build model: 0.02 seconds
+
+=== Evaluation on test set ===
+
+Time taken to test model on supplied test set: 0.06 seconds
+
+=== Summary ===
+
+Correctly Classified Instances        2321               47.1078 %
+Incorrectly Classified Instances      2606               52.8922 %
+Total Number of Instances             4927     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   Class
+                 0.158    0.089    0.322      0.158    negative
+                 0.247    0.149    0.418      0.247    positive
+                 0.745    0.692    0.506      0.745    neutral
+Weighted Avg.    0.471    0.401    0.441      0.471    
+
+=== Confusion Matrix ===
+
+    a    b    c   <-- classified as
+  164  140  734 |    a = negative
+  107  368 1014 |    b = positive
+  239  372 1789 |    c = neutral
+

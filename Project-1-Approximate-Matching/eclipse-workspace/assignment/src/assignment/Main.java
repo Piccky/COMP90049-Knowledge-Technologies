@@ -1,0 +1,244 @@
+package assignment;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+public class Main {
+	// The misspelled words path
+	private static String mPath = System.getProperty("user.dir")+"/misspell.txt";
+	// The dictionary path
+	private static String dPath = System.getProperty("user.dir")+"/dict.txt";
+	// The corresponding correct word set
+	private static String cPath = System.getProperty("user.dir")+"/correct.txt";
+	// Output file path for Global edit distance
+	private static String gOutPath = System.getProperty("user.dir")+"/Output_GED.txt";
+	// Part of output file path for NGram
+	private static String nOutPath = System.getProperty("user.dir");
+	static GlobalEdit g = new GlobalEdit();		
+	static NGram n = new NGram();
+	public static void main(String args[]) {
+		try{
+			// Initialize the basic file path 
+			File mFile = new File(mPath);
+			InputStreamReader mReader = new InputStreamReader(new FileInputStream(mFile));
+			BufferedReader mBR = new BufferedReader(mReader);
+			File dFile = new File(dPath);
+			InputStreamReader dReader = new InputStreamReader(new FileInputStream(dFile));
+			BufferedReader dBR = new BufferedReader(dReader);
+			File cFile = new File(cPath);
+			InputStreamReader cReader = new InputStreamReader(new FileInputStream(cFile));
+			BufferedReader cBR = new BufferedReader(cReader);
+			Set<String> dSet = new HashSet<String>();
+			String dLine = "";
+			dLine = dBR.readLine();
+			while(dLine != null) {
+				dSet.add(dLine);
+				dLine = dBR.readLine();
+			}
+			long startTime = System.currentTimeMillis();
+			// Determine the method depending on the argument
+			
+			if(args[0].equals("G")) {
+				useGED(dSet, mBR, cBR);
+			}
+			else if (args[0].equals("N")) {
+				if(args[1].equals("2")) {
+					useNGram(dSet, mBR, cBR, "2");
+				}
+				else if(args[1].equals("3")) {
+					useNGram(dSet, mBR, cBR, "3");
+				}
+				else {
+					System.out.println("Invalid parameters.");
+				}
+			}
+			else {
+				System.out.println("Invalid parameters.");
+			}
+			// Calculate the running time
+			long endTime = System.currentTimeMillis();
+			long time = endTime - startTime;
+			System.out.println("Time: "+time/1000+"s");
+			
+			mBR.close();
+			dBR.close();
+			cBR.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	// Get the predicted words with the max GED
+	public static Set<String> maxGEDDistance(Set<String> s, String str) throws IOException {
+		int max = -100;
+		int distance;
+		Set<String> result = new HashSet<String>();
+		Iterator<String> i = s.iterator();
+		String temp = "";
+		if(s.contains(str)) {
+			result.add(str);
+			return result;
+		}
+		while(i.hasNext()) {
+			temp = i.next();
+			distance = g.distance(str, temp);
+			if(max < distance) {
+				max = distance;
+				result.clear();
+				result.add(temp);
+			}
+			else if(max == distance) {
+				result.add(temp);
+			}
+		}
+		return result;		
+	}
+	// Use GED method to process the data
+	public static void useGED(Set<String> s, BufferedReader mBR, BufferedReader cBR) throws IOException{
+		String mLine = mBR.readLine();
+		String cLine = cBR.readLine();
+		int cNum = 0;
+		int wNum = 0;
+		int pNum = 0;
+		int maxPreNum = 0;
+		Set<String> set;
+		File outputFile = new File(gOutPath);
+		try {
+			if(!outputFile.exists()) {
+				outputFile.createNewFile();
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		BufferedWriter bw = new BufferedWriter(new FileWriter(outputFile));
+		while (mLine != null) {
+			set = maxGEDDistance(s, mLine);
+			if(set.contains(cLine)) {
+				cNum++;
+				bw.write("TRUE \t");
+				bw.flush();
+			}
+			else {
+				wNum++;
+				bw.write("FALSE\t");
+				bw.flush();
+			}
+			bw.write("Misspell: "+mLine+", Correct: "+cLine+", Candidates: ");
+			bw.flush();
+			Iterator<String> i = set.iterator();
+			while(i.hasNext()) {
+				bw.write(i.next()+" ");
+				bw.flush();
+			}
+			bw.write("\n");
+			bw.flush();
+			pNum = pNum + set.size();
+			if(set.size() > maxPreNum) {
+				maxPreNum = set.size();
+			}
+			mLine = mBR.readLine();
+			cLine = cBR.readLine();
+		}
+		bw.close();
+		int total = cNum + wNum;
+		double avgPre = (double)pNum/total;
+		double accuracy = (double)cNum/total;
+		double precision = (double)cNum/pNum;
+		System.out.println("Global Edit Distance Completed!");
+		System.out.println("Words: " + total);
+		System.out.println("Correct Predictions: " + cNum);
+		System.out.println("Recall: " + accuracy);
+		System.out.println("Precision: " + precision);
+		System.out.println("Average Predictions: " + avgPre);
+		System.out.println("Max Predictions: " + maxPreNum);
+	}
+	// Use NGram method to process data
+	public static void useNGram(Set<String> s,BufferedReader mBR, BufferedReader cBR, String ng) throws IOException{
+		//NGram n = new NGram();
+		String mLine = mBR.readLine();
+		String cLine = cBR.readLine();
+		int cNum = 0;
+		int wNum = 0;
+		int pNum = 0;
+		int maxPreNum = 0;
+		Set<String> set;
+		File outputFile = new File(nOutPath+"/Output_"+ng+"Gram.txt");
+		try {
+			if(!outputFile.exists()) {
+				outputFile.createNewFile();
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		BufferedWriter bw = new BufferedWriter(new FileWriter(outputFile));
+		while(mLine != null) {
+			set = minNGramDistance(s, mLine, ng);
+			if(set.contains(cLine)) {
+				cNum++;
+				bw.write("TRUE \t");
+				bw.flush();
+			}
+			else {
+				wNum++;
+				bw.write("FALSE\t");
+				bw.flush();
+			}
+			bw.write("Misspell: "+mLine+", Correct: "+cLine+", Candidates: ");
+			bw.flush();
+			Iterator<String> i = set.iterator();
+			while(i.hasNext()) {
+				bw.write(i.next()+" ");
+				bw.flush();
+			}
+			bw.write("\n");
+			bw.flush();
+			pNum = pNum+set.size();
+			if(set.size() > maxPreNum) {
+				maxPreNum = set.size();
+			}
+			mLine = mBR.readLine();
+			cLine = cBR.readLine();
+		}
+		bw.close();
+		int total = cNum + wNum;
+		double avgPre = (double)pNum/total;
+		double accuracy = (double)cNum/total;
+		double precision = (double)cNum/pNum;
+		System.out.println(ng+"-Gram Completed!");
+		System.out.println("Words: " + total);
+		System.out.println("Correct Predictions: " + cNum);
+		System.out.println("Recall: " + accuracy);
+		System.out.println("Precision: " + precision);
+		System.out.println("Average Predictions: " + avgPre);
+		System.out.println("Max Predictions: " + maxPreNum);
+	}
+	// Get the words with minimum NGram distance
+	public static Set<String> minNGramDistance(Set<String> s, String str, String ng) throws IOException {
+		int min = 100;
+		int distance;
+		Set<String> result = new HashSet<String>();
+		Iterator<String> i = s.iterator();
+		if(s.contains(str)) {
+			result.add(str);
+			return result;
+		}
+		String temp = "";
+		while(i.hasNext()) {
+			temp = i.next();
+			distance = n.distance(str, temp, ng);
+			if(distance < min) {
+				result.clear();
+				result.add(temp);
+				min = distance;
+			}
+			else if(distance == min) {
+				result.add(temp);
+			}
+		}
+		return result;
+	}
+}

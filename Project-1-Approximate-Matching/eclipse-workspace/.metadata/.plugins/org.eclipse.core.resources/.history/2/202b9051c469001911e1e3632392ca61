@@ -1,0 +1,55 @@
+package assignment;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class NGram {
+	public int distance(String str1, String str2, String ng) {
+		String s1, s2;
+		int n = Integer.parseInt(ng);
+		if (str1.equals(str2)) {
+			return 0;
+		}
+		if (str1.length() >= str2.length()) {
+			s1 = "#"+str1+"#";
+			s2 = "#"+str2+"#";
+		}
+		else {
+			s1 = "#"+str2+"#";
+			s2 = "#"+str1+"#";
+		}
+		int length1 = s1.length();
+		int length2 = s2.length();
+		int n1 = length1 + 1 - n;
+		int n2 = length2 + 1 - n;
+		String subStr;
+		int c = 0;
+		int result = 0;
+		Map<String,Integer> m = new HashMap<String, Integer>();
+		for (int i = 0; i <= length1-n; i++) {
+			subStr = s1.substring(i, i+n);
+			if (m.get(subStr) != null) {
+				m.put(subStr, m.get(subStr)+1);
+			}
+			else {
+				m.put(subStr, 1);
+			}
+		}
+		for (int i = 0;i <= length2-n; i++) {
+			subStr = s2.substring(i, i+n);
+			if (m.get(subStr) == null) {
+				continue;
+			}
+			else if (m.get(subStr) == 1) {
+				c++;
+				m.remove(subStr);
+			}
+			else if (m.get(subStr) > 1) {
+				c++;
+				m.put(subStr, m.get(subStr)-1);
+			}
+		}
+		result = n1 + n2 - 2 * c;
+		return result;
+	}
+}

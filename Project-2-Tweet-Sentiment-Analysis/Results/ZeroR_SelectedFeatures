@@ -1,0 +1,57 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.rules.ZeroR 
+Relation:     train2-weka.filters.unsupervised.attribute.Remove-R1-weka.filters.unsupervised.attribute.Remove-R1-2,4-9,11-12,14-15,18,21,23,28,30-32,34-35,37-38,40-41,43-45
+Instances:    22987
+Attributes:   18
+              best
+              day
+              fuck
+              great
+              happy
+              ice
+              is
+              liberals
+              love
+              my
+              night
+              not
+              people
+              sick
+              stupid
+              they
+              trump
+              sentiment
+Test mode:    user supplied test set:  size unknown (reading incrementally)
+
+=== Classifier model (full training set) ===
+
+ZeroR predicts class value: neutral
+
+Time taken to build model: 0 seconds
+
+=== Evaluation on test set ===
+
+Time taken to test model on supplied test set: 0.01 seconds
+
+=== Summary ===
+
+Correctly Classified Instances        2400               48.7112 %
+Incorrectly Classified Instances      2527               51.2888 %
+Total Number of Instances             4927     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   Class
+                 0.000    0.000    ?          0.000    negative
+                 0.000    0.000    ?          0.000    positive
+                 1.000    1.000    0.487      1.000    neutral
+Weighted Avg.    0.487    0.487    ?          0.487    
+
+=== Confusion Matrix ===
+
+    a    b    c   <-- classified as
+    0    0 1038 |    a = negative
+    0    0 1489 |    b = positive
+    0    0 2400 |    c = neutral
+

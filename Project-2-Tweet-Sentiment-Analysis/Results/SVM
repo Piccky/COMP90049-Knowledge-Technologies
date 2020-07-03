@@ -1,0 +1,254 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.SMO -C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K "weka.classifiers.functions.supportVector.PolyKernel -E 1.0 -C 250007" -calibrator "weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4"
+Relation:     train2-weka.filters.unsupervised.attribute.Remove-R1
+Instances:    22987
+Attributes:   46
+              and
+              bad
+              best
+              better
+              big
+              country
+              crap
+              damn
+              dance
+              day
+              democrats
+              do
+              fuck
+              gay
+              gift
+              great
+              happy
+              hate
+              ice
+              is
+              job
+              liberals
+              like
+              love
+              my
+              night
+              not
+              obama
+              people
+              racist
+              real
+              shit
+              sick
+              smart
+              so
+              stupid
+              the
+              their
+              they
+              to
+              today
+              trump
+              vote
+              watch
+              we
+              sentiment
+Test mode:    user supplied test set:  size unknown (reading incrementally)
+
+=== Classifier model (full training set) ===
+
+SMO
+
+Kernel used:
+  Linear Kernel: K(x,y) = <x,y>
+
+Classifier for classes: negative, positive
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0.001  * (normalized) and
+ +      -3.9983 * (normalized) bad
+ +       2.0025 * (normalized) best
+ +       0.0002 * (normalized) better
+ +       0.0002 * (normalized) big
+ +      -1.9998 * (normalized) country
+ +      -2.0003 * (normalized) crap
+ +      -0.0011 * (normalized) damn
+ +       1      * (normalized) dance
+ +       0.0012 * (normalized) day
+ +      -2      * (normalized) democrats
+ +      -0.0035 * (normalized) do
+ +      -3.9992 * (normalized) fuck
+ +      -3.9984 * (normalized) gay
+ +       0.001  * (normalized) gift
+ +       0.75   * (normalized) great
+ +       0.0016 * (normalized) happy
+ +      -3.9991 * (normalized) hate
+ +       0.0016 * (normalized) ice
+ +      -0.0006 * (normalized) is
+ +      -1.9973 * (normalized) job
+ +      -3.9988 * (normalized) liberals
+ +      -0.0006 * (normalized) like
+ +       3.5    * (normalized) love
+ +       0.0026 * (normalized) my
+ +       0.0004 * (normalized) night
+ +      -5.9979 * (normalized) not
+ +      -3.9983 * (normalized) obama
+ +      -5.9975 * (normalized) people
+ +      -3.9989 * (normalized) racist
+ +      -0.75   * (normalized) real
+ +      -5.9976 * (normalized) shit
+ +      -3      * (normalized) sick
+ +       0.0006 * (normalized) smart
+ +      -0      * (normalized) so
+ +      -2.0003 * (normalized) stupid
+ +       0.0001 * (normalized) the
+ +      -3      * (normalized) their
+ +      -7.9945 * (normalized) they
+ +       0.0001 * (normalized) to
+ +      -0.0001 * (normalized) today
+ +      -3.9999 * (normalized) trump
+ +      -1.5    * (normalized) vote
+ +       0.001  * (normalized) watch
+ +       0      * (normalized) we
+ +       0.9997
+
+Number of kernel evaluations: 21367588 (44.71% cached)
+
+Classifier for classes: negative, neutral
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0.0003 * (normalized) and
+ +      -3.9992 * (normalized) bad
+ +       0.0007 * (normalized) best
+ +       0.0004 * (normalized) better
+ +       0.0001 * (normalized) big
+ +      -0.0002 * (normalized) country
+ +      -1.9999 * (normalized) crap
+ +      -3.5    * (normalized) damn
+ +       0.0001 * (normalized) dance
+ +      -0.0005 * (normalized) day
+ +      -1.9993 * (normalized) democrats
+ +       0.0003 * (normalized) do
+ +      -3.9997 * (normalized) fuck
+ +      -0.0002 * (normalized) gay
+ +       0.0006 * (normalized) gift
+ +       0.0006 * (normalized) great
+ +       0.0005 * (normalized) happy
+ +      -3.9996 * (normalized) hate
+ +       0.0001 * (normalized) ice
+ +      -0.0015 * (normalized) is
+ +      -0.0002 * (normalized) job
+ +      -4.0007 * (normalized) liberals
+ +      -0.0006 * (normalized) like
+ +       0      * (normalized) love
+ +      -0.0004 * (normalized) my
+ +       0      * (normalized) night
+ +      -0.0006 * (normalized) not
+ +      -3      * (normalized) obama
+ +      -5.9966 * (normalized) people
+ +      -3.9991 * (normalized) racist
+ +       0.0003 * (normalized) real
+ +      -5.9998 * (normalized) shit
+ +      -3.6667 * (normalized) sick
+ +       0.0006 * (normalized) smart
+ +       0.0004 * (normalized) so
+ +      -2.0001 * (normalized) stupid
+ +       0.0004 * (normalized) the
+ +      -0.0022 * (normalized) their
+ +      -0.0012 * (normalized) they
+ +      -0.0001 * (normalized) to
+ +       0.0003 * (normalized) today
+ +      -0.0012 * (normalized) trump
+ +      -0.0002 * (normalized) vote
+ +      -0.0003 * (normalized) watch
+ +       0.0003 * (normalized) we
+ +       1.0001
+
+Number of kernel evaluations: 47349137 (36.406% cached)
+
+Classifier for classes: positive, neutral
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+        -0.0003 * (normalized) and
+ +       0.0001 * (normalized) bad
+ +      -4.0006 * (normalized) best
+ +      -0.0012 * (normalized) better
+ +      -0.0003 * (normalized) big
+ +      -0.0002 * (normalized) country
+ +      -0.0003 * (normalized) crap
+ +      -1.5    * (normalized) damn
+ +      -2.0007 * (normalized) dance
+ +      -0.7235 * (normalized) day
+ +      -0.0009 * (normalized) democrats
+ +       0.0001 * (normalized) do
+ +      -0.0005 * (normalized) fuck
+ +      -0.0001 * (normalized) gay
+ +      -2      * (normalized) gift
+ +      -4.0007 * (normalized) great
+ +      -6      * (normalized) happy
+ +       0.0016 * (normalized) hate
+ +      -4.0568 * (normalized) ice
+ +      -0.0007 * (normalized) is
+ +       0.0002 * (normalized) job
+ +      -0      * (normalized) liberals
+ +      -0.0003 * (normalized) like
+ +      -4.0001 * (normalized) love
+ +      -2.0341 * (normalized) my
+ +      -0.0002 * (normalized) night
+ +      -0      * (normalized) not
+ +       0.0008 * (normalized) obama
+ +      -0.0016 * (normalized) people
+ +       0.5    * (normalized) racist
+ +       0.0005 * (normalized) real
+ +      -0.6667 * (normalized) shit
+ +       0      * (normalized) sick
+ +       0      * (normalized) so
+ +       0      * (normalized) stupid
+ +      -0.0005 * (normalized) the
+ +       0.0005 * (normalized) their
+ +      -0.0005 * (normalized) they
+ +      -0.0001 * (normalized) to
+ +      -0.0009 * (normalized) today
+ +       0.0007 * (normalized) trump
+ +      -0.0001 * (normalized) vote
+ +      -0.0002 * (normalized) watch
+ +      -0.0006 * (normalized) we
+ +       1.0004
+
+Number of kernel evaluations: 71319133 (35.794% cached)
+
+
+
+Time taken to build model: 21.54 seconds
+
+=== Evaluation on test set ===
+
+Time taken to test model on supplied test set: 0.03 seconds
+
+=== Summary ===
+
+Correctly Classified Instances        2411               48.9344 %
+Incorrectly Classified Instances      2516               51.0656 %
+Total Number of Instances             4927     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   Class
+                 0.101    0.056    0.326      0.101    negative
+                 0.134    0.062    0.483      0.134    positive
+                 0.878    0.825    0.503      0.878    neutral
+Weighted Avg.    0.489    0.433    0.459      0.489    
+
+=== Confusion Matrix ===
+
+    a    b    c   <-- classified as
+  105   60  873 |    a = negative
+   77  199 1213 |    b = positive
+  140  153 2107 |    c = neutral
+
